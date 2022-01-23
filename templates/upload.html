@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+<h1>Choose a File:</h1>
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+    <div id="msg"></div>
+    <br>
+    <input type="submit" value="Upload!" id="upload-button">
+    <br>
+    <br>
+    <hint>This engine works best if you choose something where the text is all the same size, printed, and good quality. Limit any extra graphics in your image like diagrams, fingers, shadows, ect. Try a picture of a book!</hint>
+</center>
+
+</form>
+</body>
+<script>
+
+    $("#file-picker").change(function(){
+
+        var input = document.getElementById('file-picker');
+
+        for (var i=0; i<input.files.length; i++)
+        {
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+
+            if ((ext == 'jpg') || (ext == 'png'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+
+        }
+
+
+    } );
+
+</script>
+</html>
+{% endblock %}

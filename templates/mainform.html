@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h3>Enter the next assignment:</h3>
+</center>
+<form  method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.assName.label }} {{form.assName}}
+    <br>
+    {{form.outof.label}}{{form.outof}}
+    <br>
+    {{form.got.label}}{{form.got}}
+   <br>
+    {{ form.submit() }}
+</form>
+</body>
+</html>
+{% endblock %}

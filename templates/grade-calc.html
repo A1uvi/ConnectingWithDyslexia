@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h1>Your grade: {{ avg }}% </h1>
+    {% if avg < aiming %}
+    <h2>You are not meeting your goal of at least {{ aiming }} </h2>
+    {% endif %}
+    {% if aiming <= avg %}
+    <h2>You are meeting your goal of at least {{ aiming }} </h2>
+    {% endif %}
+</center>
+<h3>You inputted these assingments:</h3>
+{% for i in mylist %}
+<p>  ~  On {{ i }} :  You got a {{ dicts[i][0] }} out of {{ dicts[i][1] }} </p>
+{% endfor %}
+<br>
+
+<h3>These assignments are bringing your grade down: </h3>
+{% for i in badlist %}
+<p>  ~  {{ i }} </p>
+<br>
+
+
+{% endfor %}
+<hint> Don't see anything? That means none of you assignments are pulling your grade down.</hint>
+</body>
+</html>
+{% endblock %}

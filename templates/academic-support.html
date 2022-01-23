@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+<h1>Enter the following to get started:</h1>
+<form  method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.numAss.label }} {{form.numAss}}
+    <br>
+    {{form.aim.label}}{{form.aim}}
+   <br>
+    {{ form.submit() }}
+    <br>
+</center>
+</form>
+<br>
+</body>
+</html>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h1>Viola! Uploaded :D</h1> <br>
+    <img src=" {{url_for('send_image', filename=image_name)}}" width ="5%" height="5%">
+    <p>
+        Your text is.... <br>
+        {{text}}
+    </p>
+</center>
+</body>
+</html>
+{% endblock %}
